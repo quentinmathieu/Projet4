@@ -1,1 +1,0 @@
-redactor.php
