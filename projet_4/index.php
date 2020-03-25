@@ -1,5 +1,13 @@
 <?php
-require_once('include/config.php');
-var_dump($newDB->init());
+
+require_once('models/config.php');
+if ( ! isset($newDB->_dbh)) 
+    { 
+$newDB = new createPDO;
+$newDB->initDb();
+}
+
+
+
 
 ?>
