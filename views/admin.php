@@ -7,4 +7,5 @@
         echo "Get out you're not authorized";
     }
 
+    require("../views/newPost.php");
     ?>
