@@ -1,6 +1,6 @@
 <?php
 
-class createPDO
+class model 
 {
     public $_hote = 'localhost';
     public $_port = '3308';
@@ -33,6 +33,8 @@ class createPDO
         return $this->_dbh;
 
     }
+
+    
     
 }
 
