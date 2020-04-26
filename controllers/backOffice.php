@@ -1,12 +1,16 @@
 <?php
 
-  require_once('../views/log.php');
-  require_once('../index.php');
-  require_once('../models/adminLogin.php');
   
+  require_once('../index.php');
+  require_once('../models/admin.php');
 
 
-$log = new login($newDB->_dbh);
+
+$log = new Admin($newDB->_dbh);
 $log->login();
+//$log->initAdmin("admin","capitol","admin@email.com");
+
+require_once('../views/log.php');
+
 
 ?>
