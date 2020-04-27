@@ -1,10 +1,10 @@
 <?php
 
-require_once('../models/post.php');
+
 $newpost = new post($newDB->_dbh) ;
 $newpost->postList(); 
 require_once('../views/articles.php');
-
+require_once('../models/post.php');
 
 //ajax post
 //ou par url avec get

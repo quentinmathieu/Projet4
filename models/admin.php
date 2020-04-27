@@ -1,6 +1,6 @@
 <?php
-require_once('../index.php');
-class Admin extends model
+
+class Admin
 {
   public $_password;
   public $_username;
@@ -9,9 +9,10 @@ class Admin extends model
   public $_sql;
   public $_stmt;
 
-  public function __construct($dbh)
+  public function __construct()
   {
-    $this->_dbh = $dbh;
+    $dh = new model;
+    $this->_dbh = $dh->initDb();
   }
   public function initAdmin($username, $password, $email)
   {
@@ -36,7 +37,10 @@ class Admin extends model
   {
 
 
-    session_start();
+    if (session_status() == PHP_SESSION_NONE) {
+      //session has not started
+      session_start();
+    }
 
     if (isset($_POST["username"]) && isset($_POST["password"])) {
       $this->_username = $_POST["username"];

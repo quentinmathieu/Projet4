@@ -1,5 +1,4 @@
 <?php
-    require_once('../models/admin.php');
     session_start();
     if ($_SESSION['isAdmin']) {
         echo "Welcome " . $_SESSION['authUser'];

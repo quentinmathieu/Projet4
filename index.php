@@ -1,13 +1,15 @@
 <?php
-
+ 
 require_once('models/config.php');
-if ( ! isset($newDB->_dbh)) 
-    { 
-$newDB = new model;
-$newDB->initDb();
-}
+require_once('router/router.php');
 
 
 
 
+
+
+
+
+$router = new router($newDB->_dbh);
+$router->run();
 ?>

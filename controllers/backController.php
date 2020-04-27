@@ -1,16 +1,23 @@
 <?php
-
-  
-  require_once('../index.php');
-  require_once('../models/admin.php');
+  require_once('models/admin.php');
+  require_once('models/config.php');
 
 
+class backController{
 
-$log = new Admin($newDB->_dbh);
-$log->login();
-//$log->initAdmin("admin","capitol","admin@email.com");
+  public $_dbh;
 
-require_once('../views/log.php');
+  public function __construct($dbh)
+  {
+    $this->_dbh = $dbh;
+  }
 
-
+  public function backOffice(){
+    $log = new Admin($this->_dbh);
+    $log->login();
+    //$log->initAdmin("admin","capitol","admin@email.com");
+    
+    require_once('views/log.php');
+  }
+}
 ?>

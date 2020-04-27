@@ -11,6 +11,11 @@ class model
     public $_row;
 
 
+    function __construct (){
+        $this->initDb();
+    }
+
+
 
     public function initDb()
     
@@ -38,6 +43,11 @@ class model
     
 }
 
+if ( ! isset($newDB->_dbh)) 
+    { 
+$newDB = new model;
+$newDB->initDb();
+}
 
 
 ?>
