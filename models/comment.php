@@ -21,7 +21,7 @@ class comment
             session_start();
         }
         if (isset($_POST["commentContent"]) && isset($_POST["commentAuthor"])  && $_POST["commentContent"] != "" && $_POST["commentAuthor"] != "" ) {
-
+            
             $this->_sql = "INSERT INTO comment(content, author, FK_post, email, date) VALUES ( :content, :author, :FK_post, :email, :date)";
 
             $this->_stmt = $this->_dbh->prepare($this->_sql);
