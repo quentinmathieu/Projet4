@@ -1,8 +1,11 @@
-<?php 
+<?php
 $newpost = new post();
-$newpost->getPostById($_GET['idPost']); 
-$newcomment = new comment();
-$newcomment->commentList($_GET['idPost']); 
+$newpost->getPostById($_GET['idPost']);
+$commentList = new comment();
+$commentList->commentList($_GET['idPost']);
+$checkComment = new comment();
+$checkComment->commentNotCheckedByPost($_GET['idPost']);
+
 ?>
 <html>
 
@@ -26,21 +29,35 @@ $newcomment->commentList($_GET['idPost']);
         </div>
     </form>
 
-    <?php 
-                    foreach ($newcomment->_comments as $newcomment->_comment) {
-                        echo '<div class="comment">
-                                <p>'.$newcomment->_comment["author"].'</p>
-                                <p>'.$newcomment->_comment["content"].'</p>
-                                <p>'.$newcomment->_comment["date"].'</p>
+    <?php
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+      }
+    if ($_SESSION['isAdmin'] == true) {
+        foreach ($checkComment->_comments as $checkComment->_comment) {
+            echo '<tr>
+                                            <td>' . $checkComment->_comment["author"] . '</td>
+                                            <td>' . $checkComment->_comment["content"] . '</td> 
+                                            <td>' . $checkComment->_comment["date"] . '</td>
+                                            <td>' . '<a href="index.php?route=checkComment&deleteId=' . $checkComment->_comment["id"] . "& check=0" . '">x</a>' . '</td>
+                                            <td>' . '<a href="index.php?route=checkComment&deleteId=' . $checkComment->_comment["id"] . "& check=1" . '">v</a>' . '</td>
+                                            <td>' . '<a href="index.php?route=viewPost&idPost=' . $checkComment->_comment["FK_post"] . '">Afficher</a>' . '</td>
+                                        </tr>';
+        }
+    }
+    foreach ($commentList->_comments as $commentList->_comment) {
+        echo '<div class="comment">
+                                <p>' . $commentList->_comment["author"] . '</p>
+                                <p>' . $commentList->_comment["content"] . '</p>
+                                <p>' . $commentList->_comment["date"] . '</p>
                             </div>';
-                    }
+    }
     ?>
     <style>
-        .comment{
-        border-width:2px; 
-        background-color: rgb(250,250,200);
+        .comment {
+            border-width: 2px;
+            background-color: rgb(250, 250, 200);
         }
-
     </style>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="//cdn.ckeditor.com/4.5.11/standard/ckeditor.js"></script>

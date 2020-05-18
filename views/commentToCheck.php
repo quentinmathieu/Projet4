@@ -2,6 +2,8 @@
 $newpost = new post();
 $newcomment = new comment();
 $newcomment->commentNotChecked();
+
+
 ?>
 
 
@@ -27,6 +29,7 @@ $newcomment->commentNotChecked();
                                 <td>' . '<a href="index.php?route=viewPost&idPost=' . $newcomment->_comment["FK_post"] . '">Afficher</a>' . '</td>
                             </tr>';
         }
+        
         ?>
 
     </table>

@@ -77,6 +77,8 @@ class comment
     }
 
 
+    
+
 
     public function commentList($idPost)
     {
@@ -107,6 +109,26 @@ class comment
             FROM
                 comment
             WHERE checked = 0
+            ORDER BY date ASC;";
+        $this->_stmt = $this->_dbh->prepare($this->_sql);
+        $this->_stmt->execute();
+        $this->_comments = $this->_stmt->fetchAll();
+    }
+
+    
+    public function commentNotCheckedByPost($idPost)
+    {
+        $this->_comments = [];
+        $this->_sql = "SELECT 
+        id,
+                author,
+                content,
+                FK_post,
+                date
+            FROM
+                comment
+            WHERE checked = 0
+            AND FK_post = $idPost
             ORDER BY date ASC;";
         $this->_stmt = $this->_dbh->prepare($this->_sql);
         $this->_stmt->execute();
