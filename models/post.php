@@ -1,5 +1,4 @@
 <?php
-require_once('../index.php');
 class post
 {
     public $_dbh;
@@ -7,9 +6,10 @@ class post
     public $_stmt;
     public $_posts; //content, title
 
-    public function __construct($dbh)
+    public function __construct()
     {
-        $this->_dbh = $dbh;
+        $dh = new model;
+    $this->_dbh = $dh->initDb();
     }
 
     public function sendPost()
@@ -73,7 +73,7 @@ class post
         return $this->_recup;
     }
 
-    public function UpdatePostContent($idPost)
+    public function updatePostContent($idPost)
     {
         if (session_status() == PHP_SESSION_NONE) {
 

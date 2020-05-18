@@ -14,7 +14,7 @@
 
 <body>
     <h1>Rédaction d'un article : </h1>
-    <form method='post' action='/projet_4/views/post_test.php'>
+    <form method='post' action='/projet_4/index.php?route=uploadPost'>
         <input type="text" id="postTitle" name="title" label="title" placeholder="Titre">
         <div>
 

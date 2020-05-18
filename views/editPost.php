@@ -1,5 +1,5 @@
-<?php require_once('../models/post.php');
-                  $newpost = new post($newDB->_dbh);
+<?php 
+                  $newpost = new post();
                   $newpost->getPostById($_GET['idPost']);?>
 <html>
 
@@ -10,7 +10,7 @@
 
 <body>
         <h1>Rédaction d'un article : </h1>
-        <form method = 'post' action ='/projet_4/models/modifPost.php?idPost=<?php echo $_GET['idPost']?>'>
+        <form method = 'post' action ='/projet_4/index.php?route=updatePostContent&idPost=<?php echo $_GET['idPost']?>'>
         <input type="text" id="postTitle" name="title" label="title" placeholder="Titre" value = "<?php echo $newpost->_recup[0];?>">
         <div>
             

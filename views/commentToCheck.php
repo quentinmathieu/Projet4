@@ -1,7 +1,6 @@
-<?php require_once('../models/post.php');
-require_once('../models/comment.php');
-$newpost = new post($newDB->_dbh);
-$newcomment = new comment($newDB->_dbh);
+<?php 
+$newpost = new post();
+$newcomment = new comment();
 $newcomment->commentNotChecked();
 ?>
 
@@ -23,9 +22,9 @@ $newcomment->commentNotChecked();
                                 <td>' . $newcomment->_comment["author"] . '</td>
                                 <td>' . $newcomment->_comment["content"] . '</td> 
                                 <td>' . $newcomment->_comment["date"] . '</td>
-                                <td>' . '<a href="../models/check.php?deleteId=' . $newcomment->_comment["id"] . "& check=0" .'">x</a>' . '</td>
-                                <td>' . '<a href="../models/check.php?deleteId=' . $newcomment->_comment["id"] . "& check=1" .'">v</a>' . '</td>
-                                <td>' . '<a href="../views/viewPost.php?idPost=' . $newcomment->_comment["FK_post"] . '">Afficher</a>' . '</td>
+                                <td>' . '<a href="index.php?route=checkComment&deleteId=' . $newcomment->_comment["id"] . "& check=0" .'">x</a>' . '</td>
+                                <td>' . '<a href="index.php?route=checkComment&deleteId=' . $newcomment->_comment["id"] . "& check=1" .'">v</a>' . '</td>
+                                <td>' . '<a href="index.php?route=viewPost&idPost=' . $newcomment->_comment["FK_post"] . '">Afficher</a>' . '</td>
                             </tr>';
         }
         ?>

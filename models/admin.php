@@ -24,7 +24,7 @@ class Admin
     $this->_sql = "INSERT INTO adminuser(username, password, email) VALUES (:username, :password, :email)";
     var_dump($this->_dbh);
     $this->_stmt = $this->_dbh->prepare($this->_sql);
-    $this->_stmt->bindValue(':username', $this->_username); // for each insert etc...
+    $this->_stmt->bindValue(':username', $this->_username); 
     $this->_stmt->bindValue(':password', $this->_password);
     $this->_stmt->bindValue(':email', $this->_email);
     $this->_stmt->execute();
@@ -38,7 +38,6 @@ class Admin
 
 
     if (session_status() == PHP_SESSION_NONE) {
-      //session has not started
       session_start();
     }
 
@@ -56,12 +55,12 @@ class Admin
         $_SESSION['isAdmin'] = true;
         $_SESSION['authUser'] = $this->_username;
         $_SESSION['id'] = $this->_result[1];
-        header('Location: /projet_4/views/admin.php');
+        header('Location: /projet_4/index.php?route=backOffice');
       } else {
         $_SESSION['isAdmin'] = false;
         $_SESSION['authUser'] = NULL;
         $_SESSION['id'] = NULL;
-        header('Location: /projet_4/views/admin.php');
+        header('Location: /projet_4/index.php?route=backOffice');
       }
     }
   }

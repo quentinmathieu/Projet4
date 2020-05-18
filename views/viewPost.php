@@ -1,8 +1,7 @@
-<?php require_once('../models/post.php');
-require_once('../models/comment.php');
-$newpost = new post($newDB->_dbh);
+<?php 
+$newpost = new post();
 $newpost->getPostById($_GET['idPost']); 
-$newcomment = new comment($newDB->_dbh);
+$newcomment = new comment();
 $newcomment->commentList($_GET['idPost']); 
 ?>
 <html>
@@ -15,7 +14,7 @@ $newcomment->commentList($_GET['idPost']);
 <body>
     <h1 id="titlePostView"><?php echo $newpost->_recup[0]; ?></h1>
     <p id="contentPostView"><?php echo $newpost->_recup[1]; ?></p>
-    <form method='post' action='/projet_4/models/newcomment.php?idPost=<?php echo $_GET['idPost'] ?>'>
+    <form method='post' action='/projet_4/index.php?route=newComment&idPost=<?php echo $_GET['idPost'] ?>'>
         <input type="text" id="commentAuthor" name="commentAuthor" label="title" placeholder="Pseudo">
         <input type="text" id="commentMail" name="commentMail" label="title" placeholder="mail@domaine">
 
@@ -27,7 +26,7 @@ $newcomment->commentList($_GET['idPost']);
         </div>
     </form>
 
-    <?php require_once('../models/post.php');
+    <?php 
                     foreach ($newcomment->_comments as $newcomment->_comment) {
                         echo '<div class="comment">
                                 <p>'.$newcomment->_comment["author"].'</p>

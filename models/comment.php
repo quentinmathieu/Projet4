@@ -1,5 +1,4 @@
 <?php
-require_once('../index.php');
 class comment
 {
     public $_dbh;
@@ -7,9 +6,10 @@ class comment
     public $_stmt;
     public $_comments; 
 
-    public function __construct($dbh)
+    public function __construct()
     {
-        $this->_dbh = $dbh;
+        $dh = new model;
+    $this->_dbh = $dh->initDb();
     }
 
     public function sendComment($idPost)
