@@ -1,28 +1,39 @@
+<html>
+    
 <?php
+$newpost = new post() ;
+$newpost->postList(); 
 
-require_once('../models/post.php');
-$newpost = new post($newDB->_dbh) ;
-$newpost->postColumn(); 
+require_once("views/header.php");
+
 ?>
 
-<div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <?php
-                        foreach ($newpost->_posts as $newpost->_post) {
-                            echo
-                            "<div class='wrap-post'>
-                                <div class='header-post'>
-                                    <div class='title-post'>".$newpost->_post["title"].", par ".$newpost->_post["adminUser"]." le ".$newpost->_post["date"]."</div>
-                                    </div>
-                                </div>
-                                <div class='content-post'>
-                                    <div class='content'>".$newpost->_post["content"]."</div>                
-                                    <div class='fade-content'><a href='/projet_4/article.php?p=".$newpost->_post["id"]."'>Lire la suite</a></div>
-                               </div>
-                            </div>";
-                    }
-                    ?>
-                </div>
-            </div>
-        </div>
+<body>
+<table id="tablePost" class="table table-striped table-bordered table-sm" class ="table-responsive" cellspacing="0" width="90%">
+    <tr class="table-first-line">
+      <th>Auteur</th>
+      <th>Titre</th>
+      <th>Date</th>
+      <th>Supprimer</th>
+      <th>Modifier</th>
+      <th>Afficher</th>
+    </tr>
+    <?php
+    foreach ($newpost->_posts as $newpost->_post) {
+      echo '
+                                <div>' . $newpost->_post["title"] . '</div> 
+                                <div>' . $newpost->_post["date"] . '</div>
+                                
+                            ';
+    }
+    ?>
+
+
+  </table>
+</body>
+<?php 
+require_once('views/scripts.php');
+require_once('views/footer.php'); 
+?>
+
+</html>

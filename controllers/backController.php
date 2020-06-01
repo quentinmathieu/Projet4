@@ -24,7 +24,14 @@ class backController
     require_once('views/log.php');
   }
 
-  public function BackOffice()
+
+  public function public()
+  {
+
+
+    require_once('views/index.php');
+  }
+  public function backOffice()
   {
 
 
