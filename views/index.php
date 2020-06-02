@@ -14,15 +14,16 @@ require_once("views/header.php");
     
     <?php
     foreach ($newpost->_posts as $newpost->_post) {
-      echo '<div class = "card text-center my-5 py-5 z-depth-1 mb3"  style="width: 60%; margin : auto; max height: 50px; overflow : hidden">
+      echo '<div class = "card text-center my-5 py-5 z-depth-1 mb3"  style="width: 60%; margin : auto; max-height: 200px; overflow : hidden">
         <div class="card-body">
           <h5 class="card-title">' . $newpost->_post["title"] . ' </br>
           publié par ' . $newpost->_post["adminUser"] . '
           le ' . substr($newpost->_post["date"], 0,10) . '</h5>
-          <p class="card-text">' . $newpost->_post["content"] . '</p>
+          <div class="card-text">' . $newpost->_post["content"] . '</div>
+          <a href="index.php?route=viewPost&idPost=' . $newpost->_post["id"] . '"  class="lireLaSuite btn btn-link" >Lire la suite</a>
           
         </div>
-        <a href="index.php?route=viewPost&idPost=' . $newpost->_post["id"] . '"  class="lireLaSuite btn btn-link" >Lire la suite</a>             
+                     
      </div>' ;
     }
     ?>

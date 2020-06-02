@@ -1,6 +1,8 @@
 <?php 
                   $newpost = new post();
-                  $newpost->getPostById($_GET['idPost']);?>
+                  $newpost->getPostById($_GET['idPost']);
+                  require_once("views/header.php");
+                  ?>
 <html>
 
 <head>
@@ -24,24 +26,12 @@
         <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
         <script src="//cdn.ckeditor.com/4.5.11/standard/ckeditor.js"></script>
         <script>
-            CKEDITOR.replace( 'post' );/*
-            $('#publish').on('click', function(){
-$.ajax({
-    method: "POST",
-    /*data: { 
-      "post": CKEDITOR.instances.editor.getData(),
-      "title": $("#postTitle").val(),
-    },
-    success: function(data){
-        console.log($("#postTitle").val());
-        console.log(CKEDITOR.instances.editor.getData());
-       $.post("/projet_4/models/modifPost.php?idPost=''", { post : CKEDITOR.instances.editor.getData(), title : $("#postTitle").val() });
-       
-    }
-})
-});*/
+            CKEDITOR.replace( 'post' );
         </script>
 
+<?php
+require_once("views/footer.php"); 
+?>
 </body>
 
 </html>

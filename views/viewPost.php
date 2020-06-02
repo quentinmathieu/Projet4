@@ -47,10 +47,11 @@ require_once("views/header.php");
                             ';
     }
     ?>
-    </div>
-    <form class="px-1 mt-4 container my-5 py-5 z-depth-1" method='post' action='/projet_4/index.php?route=newComment&idPost=<?php echo $_GET['idPost'] ?>'>
-    <div class="form-group mt-4">
-            <textarea name="commentContent" class="form-control" row ="5"></textarea>
+
+<form class="container  "  method='post' action='/projet_4/index.php?route=newComment&idPost=<?php echo $_GET['idPost'] ?>'>
+    <div class="form-group mt-4 commentForm">
+    <h3>Laissez un commentaire!</h3>
+            <textarea name="commentContent" class="form-control" row ="10" placeholder="..."></textarea>
         
             
         
@@ -63,6 +64,10 @@ require_once("views/header.php");
 
         
     </form>
+    </div>
+
+    
+    
     
     
     

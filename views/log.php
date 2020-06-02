@@ -1,4 +1,14 @@
-<form method="POST">
+
+
+<body>
+<?php
+require_once('views/header.php');
+?>
+
+
+<div class = "card text-center my-5 py-5 z-depth-1 mb3"  style="width: 60%; margin : auto">
+                     
+     <form method="POST">
   <div>
     <h2>Login</h2>
   </div>
@@ -12,3 +22,10 @@
     <input type="submit" value="Submit">
   </div>
 </form>
+
+</div>
+</body>
+
+<?php
+require_once('views/footer.php');
+?>
