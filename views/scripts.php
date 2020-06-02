@@ -8,7 +8,3 @@
   <script type="text/javascript" src="content/MDB/js/mdb.min.js"></script>
   <!-- MDBootstrap Datatables  -->
 <script type="text/javascript" src="content/MDB/js/addons/datatables.min.js"></script>
-<script> $(document).ready(function () {
-  $("#tablePost").DataTable();
-  $('.dataTables_length').addClass('bs-select');
-}); </script>

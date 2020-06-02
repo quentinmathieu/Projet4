@@ -28,6 +28,7 @@ $router->run();
   <!-- MDBootstrap Datatables  -->
   <link href="content/MDB/css/addons/datatables.min.css" rel="stylesheet">
 
+  <!-- perso  -->
   <link href="content/MDB/css/style.css" rel="stylesheet">
 </head>
 <?php 

@@ -54,13 +54,17 @@ class router
                     case 'checkComment':
                         $backController->checkComment();
                     break;
+                    case 'blog':
+                        $backController->blog();
+                    break;
                     default:
                     echo 'page inconnue';
                     
                 }
                 
             } else {
-                //require '';
+                $backController = new backController($this->_dbh);
+                $backController->blog();
             }
         } catch (Exception $e) {
             echo 'Erreur';

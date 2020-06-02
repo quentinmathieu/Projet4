@@ -1,5 +1,5 @@
 <!--Navbar-->
-<nav class="navbar navbar-expand-lg navbar-dark primary-color">
+<nav class="navbar navbar-expand-lg navbar-dark brown darken-3">
 
   <!-- Navbar brand 
   <a class="navbar-brand" href="#">Blog</a>-->
@@ -35,10 +35,7 @@
     <!-- Links -->
 
     <ul class="navbar-nav m-y=0">
-      <li class="nav-item ">
-        <a class="nav-link" href="">à propos
-        </a>
-      </li>
+      
       <?php
       if (session_status() == PHP_SESSION_NONE) {
 

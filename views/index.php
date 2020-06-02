@@ -8,28 +8,27 @@ require_once("views/header.php");
 
 ?>
 
+
 <body>
-<table id="tablePost" class="table table-striped table-bordered table-sm" class ="table-responsive" cellspacing="0" width="90%">
-    <tr class="table-first-line">
-      <th>Auteur</th>
-      <th>Titre</th>
-      <th>Date</th>
-      <th>Supprimer</th>
-      <th>Modifier</th>
-      <th>Afficher</th>
-    </tr>
+<div id="index"  >
+    
     <?php
     foreach ($newpost->_posts as $newpost->_post) {
-      echo '
-                                <div>' . $newpost->_post["title"] . '</div> 
-                                <div>' . $newpost->_post["date"] . '</div>
-                                
-                            ';
+      echo '<div class = "card text-center my-5 py-5 z-depth-1 mb3"  style="width: 60%; margin : auto; max height: 50px; overflow : hidden">
+        <div class="card-body">
+          <h5 class="card-title">' . $newpost->_post["title"] . ' </br>
+          publié par ' . $newpost->_post["adminUser"] . '
+          le ' . substr($newpost->_post["date"], 0,10) . '</h5>
+          <p class="card-text">' . $newpost->_post["content"] . '</p>
+          
+        </div>
+        <a href="index.php?route=viewPost&idPost=' . $newpost->_post["id"] . '"  class="lireLaSuite btn btn-link" >Lire la suite</a>             
+     </div>' ;
     }
     ?>
 
 
-  </table>
+  </div>
 </body>
 <?php 
 require_once('views/scripts.php');

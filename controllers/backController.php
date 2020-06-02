@@ -96,4 +96,9 @@ class backController
     $newcomment->checkComment($_GET['deleteId'], $_GET['check']);
     header('Location: ' . $_SERVER['HTTP_REFERER']);
   }
+
+  public function blog()
+  {
+    require_once("views/index.php");
+  }
 }

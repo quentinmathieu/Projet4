@@ -97,10 +97,13 @@ class post
     {
         $this->_posts = [];
         $this->_sql = "SELECT
+        
                 post.id,
                 post.title,
+                post.content,
                 adminuser.username as adminUser,
                 post.date
+                
             FROM
                 post
             lEFT JOIN

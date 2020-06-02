@@ -16,9 +16,39 @@ require_once("views/header.php");
 </head>
 
 <body>
+    <div class ="container my-5 py-5 z-depth-1">
     <h1 id="titlePostView"><?php echo $newpost->_recup[0]; ?></h1>
     <p id="contentPostView"><?php echo $newpost->_recup[1]; ?></p>
-    <form class="px-1 mt-4" method='post' action='/projet_4/index.php?route=newComment&idPost=<?php echo $_GET['idPost'] ?>'>
+</div>
+    
+    <div class='container my-5 py-5 z-depth-1'>
+    <h2>Commentaires</h2>
+    <?php
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+      }
+    if ($_SESSION['isAdmin'] == true) {
+        foreach ($checkComment->_comments as $checkComment->_comment) {
+            echo '<div  class="media-body text-center text-md-left ml-md-3 ml-0 comment">
+            
+            <h5 class="font-weight-bold mt-0">' . $checkComment->_comment["author"] . '</h5><br/>
+            <p>' . $checkComment->_comment["content"] . '</p> <br/>
+                                            <div>' . $checkComment->_comment["date"] . '</div> <br/>
+                                            <div>' . '<a href="index.php?route=checkComment&deleteId=' . $checkComment->_comment["id"] . "& check=0" . '">Supprimer</a>' . '<br/>
+                                            ' . '<a href="index.php?route=checkComment&deleteId=' . $checkComment->_comment["id"] . "& check=1" . '">Valider</a>' . '</div> </div> <br/>';
+        }
+    }
+    foreach ($commentList->_comments as $commentList->_comment) {
+        echo '
+                                <div class="media-body text-center text-md-left ml-md-3 ml-0">  
+                                <h5 class="font-weight-bold mt-0">' . $commentList->_comment["author"] . '</h5>
+                                <p>' . $commentList->_comment["content"] . '</p>
+                                <p>' . $commentList->_comment["date"] . '</p></div>
+                            ';
+    }
+    ?>
+    </div>
+    <form class="px-1 mt-4 container my-5 py-5 z-depth-1" method='post' action='/projet_4/index.php?route=newComment&idPost=<?php echo $_GET['idPost'] ?>'>
     <div class="form-group mt-4">
             <textarea name="commentContent" class="form-control" row ="5"></textarea>
         
@@ -28,43 +58,14 @@ require_once("views/header.php");
         <input type="text" id="commentAuthor" name="commentAuthor" label="title" placeholder="Pseudo">
         <input type="text" id="commentMail" name="commentMail" label="title" placeholder="mail@domaine">
 
-        <button type='submit' id="commentButton" class="btn btn-primary btn-sm">Publier</button>
+        <button type='submit' id="commentButton" class="btn btn-brown btn-sm">Publier</button>
         </div>
 
         
     </form>
     
-    <?php
-    if (session_status() == PHP_SESSION_NONE) {
-        session_start();
-      }
-    if ($_SESSION['isAdmin'] == true) {
-        foreach ($checkComment->_comments as $checkComment->_comment) {
-            echo '<div  class="comment">
-            
-            <h5 class="font-weight-bold mt-0">' . $checkComment->_comment["author"] . '</h5><br/>
-            <div>' . $checkComment->_comment["content"] . '</div> <br/>
-                                            <div>' . $checkComment->_comment["date"] . '</div> <br/>
-                                            <div>' . '<a href="index.php?route=checkComment&deleteId=' . $checkComment->_comment["id"] . "& check=0" . '">Supprimer</a>' . '<br/>
-                                            ' . '<a href="index.php?route=checkComment&deleteId=' . $checkComment->_comment["id"] . "& check=1" . '">Valider</a>' . '</div> </div> <br/>';
-        }
-    }
-    foreach ($commentList->_comments as $commentList->_comment) {
-        echo '<div class="media d-block d-md-flex mt-4" class="comment">
-                                <div class="media-body text-center text-md-left ml-md-3 ml-0">  
-                                <h5 class="font-weight-bold mt-0">' . $commentList->_comment["author"] . '</h5>
-                                ' . $commentList->_comment["content"] . '
-                                <p>' . $commentList->_comment["date"] . '</p></div>
-                            </div>';
-    }
-    ?>
     
-    <style>
-        .comment {
-            border-width: 2px;
-            background-color: rgb(250, 250, 200);
-        }
-    </style>
+    
     
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="//cdn.ckeditor.com/4.5.11/standard/ckeditor.js"></script>

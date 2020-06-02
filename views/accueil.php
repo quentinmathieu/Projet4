@@ -9,7 +9,7 @@ require_once('views/articles.php');
 
 
 ?>
-<a href="index.php?route=newPost"><button type="button" class="btn  btn-primary ">Créer un nouveau post</button></a>
+<a href="index.php?route=newPost"><button type="button" id="btn-newPost" class="btn  btn-brown ">Créer un nouveau post</button></a>
   
 
 
