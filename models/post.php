@@ -41,6 +41,8 @@ class post
 
             session_start();
         }
+        if ($_SESSION['isAdmin']) {
+        
         if (isset($_GET["deleteId"])) {
 
             $this->_sql = "DELETE 
@@ -52,9 +54,9 @@ class post
 
             $this->_stmt->bindValue(':deleteId', $_GET["deleteId"]);
             $this->_stmt->execute();
-
+            header('Refresh: 1' );
             return;
-        }
+        }}
     }
 
     public function getPostById($idPost)

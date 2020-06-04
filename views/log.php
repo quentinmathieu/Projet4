@@ -1,11 +1,11 @@
 
 
-<body>
+
 <?php
 require_once('views/header.php');
 ?>
 
-
+<section id="logIn">
 <div class = "card text-center my-5 py-5 z-depth-1 mb3"  style="width: 60%; margin : auto">
                      
      <form method="POST">
@@ -24,7 +24,7 @@ require_once('views/header.php');
 </form>
 
 </div>
-</body>
+</section>
 
 <?php
 require_once('views/footer.php');

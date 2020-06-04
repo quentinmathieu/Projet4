@@ -144,3 +144,16 @@ a:hover {
     margin-top: 0 !important;
     margin-bottom: 4em !important;
 }
+
+.formRedac {
+    width: 95%;
+    margin: auto;
+}
+
+#postTitle {
+    margin-bottom: .5em;
+}
+
+#post {
+    margin: auto;
+}

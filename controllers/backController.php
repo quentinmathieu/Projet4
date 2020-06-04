@@ -17,11 +17,23 @@ class backController
 
   public function LogIn()
   {
-    $log = new Admin($this->_dbh);
-    $log->login();
-    //$log->initAdmin("admin","capitol","admin@email.com");
 
-    require_once('views/log.php');
+    if (session_status() == PHP_SESSION_NONE) {
+      session_start();
+    }
+
+    if ($_SESSION['isAdmin']) {
+
+      header('Location: /projet_4/index.php?route=backOffice');
+    } 
+    
+    else {
+      $log = new Admin($this->_dbh);
+      $log->login();
+      //$log->initAdmin("admin","capitol","admin@email.com");
+
+      require_once('views/log.php');
+    }
   }
 
 

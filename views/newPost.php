@@ -1,35 +1,37 @@
-<html>
 <?php
 require_once('views/header.php');
 ?>
 
-<body>
-    <h1>Rédaction d'un article : </h1>
-    <form method='post' action='/projet_4/index.php?route=uploadPost'>
-        <input type="text" id="postTitle" name="title" label="title" placeholder="Titre">
+<section id="redac">
+    <h2>Rédaction d'un article</h2>
+    <form class="formRedac" method='post' action='/projet_4/index.php?route=uploadPost'>
+        <input type="text" id="postTitle" name="title" label="title" placeholder="Titre" class="form-control">
         <div>
 
-            <div><textarea name="post"></textarea></div>
-            <!--<textarea id="editeur"></textarea>-->
+            <div><textarea name="post" id="post"></textarea></div>
 
-    
-   
+
+
         </div>
 
-        <button id="publish">Publier</button>
+        <button id="publish" class="btn  btn-brown ">Publier</button>
     </form>
 
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    <script src="//cdn.ckeditor.com/4.5.11/standard/ckeditor.js"></script>
-    
+
+
     <script>
-        //document.querySelector('#editeur').mdbWYSIWYG();
-        CKEDITOR.replace('post');
+        tinymce.init({
+            selector: '#post',
+            height: "500",
+        });
     </script>
 
-</body>
+
+</section>
+
+
+
 <?php
 require_once('views/scripts.php');
 require_once('views/footer.php');
 ?>
-</html>
