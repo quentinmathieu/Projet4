@@ -2,7 +2,7 @@
 
 
   <h2>TICKETS</h2>
-  <table id="tablePost" class="table table-striped table-bordered table-sm " class="table-responsive" cellspacing="0">
+  <table id="tablePost" class="table table-striped table-bordered table-sm table-responsive" >
     <thead>
       <tr class="table-first-line">
         <th>Auteur</th>

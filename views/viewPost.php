@@ -13,7 +13,7 @@ require_once("views/header.php");
 <section id="Article">
     <div class="container my-5 py-5 z-depth-1">
         <h1 id="titlePostView"><?php echo $newpost->_recup[0]; ?></h1>
-        <p id="contentPostView"><?php echo $newpost->_recup[1]; ?></p>
+        <p id="contentPostView"><?php echo $newpost->_recup[1]; ?>
     </div>
 </section>
 
@@ -29,7 +29,7 @@ require_once("views/header.php");
                 echo '<div  class="media-body text-center text-md-left ml-md-3 ml-0 comment">
             
             <h5 class="font-weight-bold mt-0">' . utf8_encode ($checkComment->_comment["author"]) . '</h5></br>
-            <p>' . utf8_encode ($checkComment->_comment["content"]) . '</p> </br>
+            ' . utf8_encode ($checkComment->_comment["content"]) . '</p> </br>
                                             <div>' . $checkComment->_comment["date"] . '</div> </br>
                                             <div>' . '<a href="index.php?route=checkComment&deleteId=' . $checkComment->_comment["id"] . "& check=0" . '">Supprimer</a>' . '</br>
                                             ' . '<a href="index.php?route=checkComment&deleteId=' . $checkComment->_comment["id"] . "& check=1" . '">Valider</a>' . '</div> </div> </br>';
@@ -48,13 +48,13 @@ require_once("views/header.php");
         <form class="container  " method='post' action='/projet_4/index.php?route=newComment&idPost=<?php echo $_GET['idPost'] ?>'>
             <div class="form-group mt-4 commentForm">
                 <h3>Laissez un commentaire!</h3>
-                <textarea name="commentContent" class="form-control" row="10" placeholder="Votre commentaire*"></textarea>
+                <textarea name="commentContent" class="form-control"  placeholder="Votre commentaire*"></textarea>
 
 
 
 
-                <input type="text" id="commentAuthor" name="commentAuthor" label="title" placeholder="Pseudo*">
-                <input type="text" id="commentMail" name="commentMail" label="title" placeholder="mail@domaine">
+                <input type="text" id="commentAuthor" name="commentAuthor" placeholder="Pseudo*">
+                <input type="text" id="commentMail" name="commentMail" placeholder="mail@domaine">
 
                 <button type='submit' id="commentButton" class="btn btn-brown btn-sm">Publier</button>
             </div>

@@ -5,7 +5,7 @@ require_once('views/header.php');
 <section id="redac">
     <h2>Rédaction d'un article</h2>
     <form class="formRedac" method='post' action='/projet_4/index.php?route=uploadPost'>
-        <input type="text" id="postTitle" name="title" label="title" placeholder="Titre" class="form-control">
+        <input type="text" id="postTitle" name="title" placeholder="Titre" class="form-control">
         <div>
 
             <div><textarea name="post" id="post"></textarea></div>

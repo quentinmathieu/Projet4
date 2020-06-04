@@ -8,7 +8,7 @@ $newcomment->commentNotChecked();
 
 <section id="commentToCheck">
     <h2>COMMENTAIRES</h2>
-    <table id="tableCom" class="table table-striped table-bordered table-sm" class="table-responsive">
+    <table id="tableCom" class="table table-striped table-bordered table-sm table-responsive">
         <thead>
             <tr class="table-first-line">
                 <th>Pseudo</th>
@@ -27,9 +27,9 @@ $newcomment->commentNotChecked();
                                 <td class ="contentTabComments">' . utf8_encode ($newcomment->_comment['content']) . '</td> 
                                 
                                 <td>' . $newcomment->_comment["date"] . '</td>
-                                <td class="tableIcons">' . '<a href="index.php?route=checkComment&deleteId=' . $newcomment->_comment["id"] . "& check=0" . '"><i class="fas fa-trash"></i></a>' . '</td>
-                                <td class="tableIcons">' . '<a href="index.php?route=checkComment&deleteId=' . $newcomment->_comment["id"] . "& check=1" . '"><i class="fas fa-check"></i></a>' . '</td>
-                                <td class="tableIcons">' . '<a href="index.php?route=viewPost&idPost=' . $newcomment->_comment["FK_post"] . '"><i class="fas fa-eye"></a>' . '</td>
+                                <td class="tableIcons">' . '<a href="index.php?route=checkComment&deleteId=' . $newcomment->_comment["id"] . "&check=0" . '"><i class="fas fa-trash"></i></a>' . '</td>
+                                <td class="tableIcons">' . '<a href="index.php?route=checkComment&deleteId=' . $newcomment->_comment["id"] . "&check=1" . '"><i class="fas fa-check"></i></a>' . '</td>
+                                <td class="tableIcons">' . '<a href="index.php?route=viewPost&idPost=' . $newcomment->_comment["FK_post"] . '"><i class="fas fa-eye"></i></a>' . '</td>
                             </tr>';
             }
 

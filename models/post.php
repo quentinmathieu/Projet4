@@ -9,7 +9,7 @@ class post
     public function __construct()
     {
         $dh = new model;
-    $this->_dbh = $dh->initDb();
+        $this->_dbh = $dh->initDb();
     }
 
     public function sendPost()
@@ -42,21 +42,22 @@ class post
             session_start();
         }
         if ($_SESSION['isAdmin']) {
-        
-        if (isset($_GET["deleteId"])) {
 
-            $this->_sql = "DELETE 
+            if (isset($_GET["deleteId"])) {
+
+                $this->_sql = "DELETE 
         FROM 
         post 
         WHERE id=:deleteId";
 
-            $this->_stmt = $this->_dbh->prepare($this->_sql);
+                $this->_stmt = $this->_dbh->prepare($this->_sql);
 
-            $this->_stmt->bindValue(':deleteId', $_GET["deleteId"]);
-            $this->_stmt->execute();
-            header('Refresh: 1' );
-            return;
-        }}
+                $this->_stmt->bindValue(':deleteId', $_GET["deleteId"]);
+                $this->_stmt->execute();
+                header('Refresh: 1');
+                return;
+            }
+        }
     }
 
     public function getPostById($idPost)
